@@ -3,10 +3,7 @@ plugins {
 }
 
 gradleEnterprise {
-    buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
-    }
+    server = "https://ge.solutions-team.gradle.com"
 }
 
 rootProject.name = 'leaky-cc'
