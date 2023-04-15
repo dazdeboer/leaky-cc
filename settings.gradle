@@ -6,4 +6,14 @@ gradleEnterprise {
     server = "https://ge.solutions-team.gradle.com"
 }
 
+buildCache {
+    remote(HttpBuildCache) {
+        url = 'https://ge.solutions-team.gradle.com/cache/'
+        credentials {
+            username = "build-cache-user"
+            password = System.getenv("CACHE_SECRET")
+        }
+    }
+}
+
 rootProject.name = 'leaky-cc'
