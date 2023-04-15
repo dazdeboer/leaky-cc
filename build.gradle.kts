@@ -5,6 +5,7 @@ tasks.register<FooTask>("foo") {
     targetFile.set(layout.buildDirectory.file("target.txt"))
 }
 
+@CacheableTask
 abstract class FooTask : DefaultTask() {
     @get:Input
     abstract val greeting: Property<String>
