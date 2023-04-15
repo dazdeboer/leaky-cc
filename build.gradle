@@ -1,13 +1,19 @@
 tasks.register('foo', FooTask) {
-    greeting = "BAR"
+    greeting = "This is the greeting"
+    targetFile = layout.buildDirectory.file("target.txt")
 }
 
 abstract class FooTask extends DefaultTask {
     @Input
     abstract Property<String> getGreeting()
 
+    @OutputFile
+    abstract RegularFileProperty getTargetFile()
+
     @TaskAction
     def execute() {
-        println greeting.get()
+        def msg = greeting.get()
+        targetFile.get().asFile << msg
+        println msg
     }
 }
