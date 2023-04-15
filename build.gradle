@@ -1,5 +1,5 @@
 tasks.register('foo', FooTask) {
-    greeting = "This is the greeting"
+    greeting = System.getProperty("TASK_GREETING", "default greeting")
     targetFile = layout.buildDirectory.file("target.txt")
 }
 
