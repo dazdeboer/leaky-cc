@@ -1,5 +1,13 @@
-task foo {
-    doLast {
-        println "foo"
+tasks.register('foo', FooTask) {
+    greeting = "BAR"
+}
+
+abstract class FooTask extends DefaultTask {
+    @Input
+    abstract Property<String> getGreeting()
+
+    @TaskAction
+    def execute() {
+        println greeting.get()
     }
 }
