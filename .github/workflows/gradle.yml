@@ -20,11 +20,11 @@ jobs:
         distribution: 'temurin'
     - name: Setup Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-    - name: Build with Gradle
-      run: ./gradlew foo
-      env:
-        GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
-        CONFIG_SECRET: Secret for config
-        TASK_SECRET: Secret for task
-        CACHE_SECRET: Secret for cache
-        REPO_SECRET: Secret for repo
+    - name: List project directory
+      run: |
+        ls $GITHUB_WORKSPACE
+        ls $GITHUB_WORKSPACE/.gradle
+        ls $GITHUB_WORKSPACE/.gradle/configuration-cache
+    - name: Inspect config cache
+      run: find $GITHUB_WORKSPACE/.gradle/configuration-cache -type d -print -exec strings {}/buildfingerprint.bin \;
+
