@@ -3,7 +3,7 @@ repositories {
         url = uri("https://my.repo.org")
         credentials {
             username = "user"
-            password = System.getenv("REPO_PASSWORD")
+            password = System.getenv("REPO_SECRET")
         }
     }
 }
