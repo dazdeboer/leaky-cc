@@ -1,3 +1,13 @@
+repositories {
+    maven {
+        url = uri("https://my.repo.org")
+        credentials {
+            username = "user"
+            password = System.getenv("REPO_PASSWORD")
+        }
+    }
+}
+
 val configEnvProvider = providers.environmentVariable("CONFIG_SECRET")
 val taskEnvProvider = providers.environmentVariable("TASK_SECRET")
 
